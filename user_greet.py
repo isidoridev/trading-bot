@@ -1,30 +1,45 @@
-def start():
+import data_collecting
+import os, platform
+
+SYSTEMNAME=platform.system()
+
+def clear_menu():
+    #clear screen
+    if SYSTEMNAME=="Windows":
+        os.system('cls')
+    elif SYSTEMNAME=="Linux":
+        os.system('clear')
+
+
+def menu():
     while True:
-       
+    
         print("\n Python Trading Bot \n Licensed by Chaos Algo Trading Firm")
-        print("\n 1. Select a stock to analyze/order \n 2. Track previous orders")
-        user_input = input("Enter your input as a number:")
+        print("\n 1. Track previous orders \n 2. Select stock to get data")
+        try:
+            user_input = int(input("Enter your input as a number:"))
+        except ValueError:
+            import time
+            clear_menu()
+            print("Please enter a number")
+            time.sleep(3)
+            clear_menu()
+            continue
 
-        if user_input == "1":
-            
-            print("Select a stock to analyze/order")
-            # from stock_analysis import analyze
-            # analyze()
-            
-                       
-            user_input = input()
-            if user_input == '0':
-                # Go back to start of while loop
-                continue 
-            else:
-                import time
-                time.sleep(10)  
-
-
-        if user_input == "2":
+       
+        if user_input == 1:
         
             print("Track previous order")
             # from order_history import display
             # display()
+        if user_input == 2:
+            stock_name = input()
+            start_date = input()
+            end_date = input()
+            print(data_collecting.get_stock_data(stock_name, start_date, end_date))
+            input()
+        
+        #clear screen
+        clear_menu()
 
-start()
+menu()
