@@ -3,6 +3,7 @@ from alpaca.data.requests import CryptoBarsRequest
 from alpaca.data.timeframe import TimeFrame
 from datetime import datetime
 
+# Returns a daily DataFrame
 def get_stock_data(stock_name, start_date, end_date):
     
     ## INCOMPLETE 
@@ -20,5 +21,4 @@ def get_stock_data(stock_name, start_date, end_date):
         end = datetime.strptime(end_date,'%Y-%m-%d') 
     )
     data=client.get_crypto_bars(request, feed="us")
-    data.df
     return data
