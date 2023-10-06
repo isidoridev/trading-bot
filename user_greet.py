@@ -1,10 +1,12 @@
 import data_collecting
 import os, platform
 
+
 SYSTEMNAME=platform.system()
 
+
 def clear_menu():
-    #clear screen
+    # clear screen
     if SYSTEMNAME=="Windows":
         os.system('cls')
     elif SYSTEMNAME=="Linux":
