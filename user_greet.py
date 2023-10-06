@@ -14,9 +14,8 @@ def clear_menu():
 def menu():
     while True:
     
-        print("\n Python Trading Bot \n Licensed by Chaos Algo Trading Firm")
-        print("\n 1. Track previous orders \n 2. Select stock to get data")
-        
+        print("\n Python Trading Bot Operating...\n ")
+        print("\n 1. Track previous orders \n 2. Select stock($TICKER) to get data\n")
         try:
             user_input = int(input("Enter your input as a number:"))
         except ValueError:
@@ -27,7 +26,7 @@ def menu():
             clear_menu()
             continue
 
-        if user_input == 1:        
+        if user_input == 1:
             print("Track previous order")
             # from order_history import display
             # display()
@@ -39,7 +38,7 @@ def menu():
             end_date = input("To Date: (YYYY-MM-DD or Today): ")
             print(data_collecting.get_stock_data(stock_name, start_date, end_date))
             input()
-        
+
         #clear screen
         clear_menu()
 
